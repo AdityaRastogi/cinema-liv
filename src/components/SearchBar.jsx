@@ -16,7 +16,7 @@ const SearchBar = () => {
           placeholder={LANG.en.searchPage.placeholder}
         ></input>
         <button className="col-span-4 md:col-span-2 py-2 m-4 px-4 bg-red-600 rounded-lg text-white font-bold">
-        {LANG.en.searchPage.buttonText}
+          {LANG.en.searchPage.buttonText}
         </button>
       </form>
     </div>
