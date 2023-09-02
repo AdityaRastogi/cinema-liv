@@ -3,7 +3,11 @@ import { addFeaturedMovies } from "../storeslices/moviesSlice";
 
 const { useEffect } = require("react");
 const { useDispatch } = require("react-redux");
-const { PREDEFINED_MOVIES, SEARCH_API_WITH_ID } = require("../appConstants");
+const {
+  PREDEFINED_MOVIES,
+  SEARCH_API_WITH_ID,
+  SEARCH_PLOT_API_PARAM,
+} = require("../appConstants");
 
 const useFeaturedMovies = () => {
   const navigate = useNavigate();
@@ -17,7 +21,7 @@ const useFeaturedMovies = () => {
     const featuredMovies = [];
     for (let i = 0; i < PREDEFINED_MOVIES.length; i++) {
       const movieDetails = await fetch(
-        `${SEARCH_API_WITH_ID}${PREDEFINED_MOVIES[i]}`,
+        `${SEARCH_API_WITH_ID}${PREDEFINED_MOVIES[i]}${SEARCH_PLOT_API_PARAM}full`,
       );
       const movieDetailsJson = await movieDetails.json();
       featuredMovies.push(movieDetailsJson);

@@ -6,7 +6,7 @@ const FeaturedList = ({ rowTitle, movies }) => {
     <div className="grid grid-cols-12">
       {movies.map((movie) => (
         <div className="col-span-8 lg:col-span-6">
-          <FeaturedCard movie={movie} />
+          <FeaturedCard key={movie.imdbID} movie={movie} />
         </div>
       ))}
     </div>
