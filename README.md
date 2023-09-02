@@ -1,6 +1,6 @@
 # Cinema Liv
 
-CinemaLiv is an app that helps you select content as per your choice.
+CinemaLiv is an responsive app that helps you select content as per your choice.
 
 ![APP](/assets/images/app-logo.png)
 
@@ -25,3 +25,17 @@ npm start
 ```bash
 npm run test
 ```
+
+## Features
+
+- Entry via Splash page
+  - redirect to Browse Page
+- Browse (Only comes after featured response)
+  - Header
+  - Featured movies \* 2
+    - Poster
+    - Title, Plot and awards
+- SearchPage
+  - can go from HOME Page
+  - Search Bar
+  - Movie search results
