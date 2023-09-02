@@ -22,8 +22,8 @@ const SearchPage = () => {
           )}
         </div>
       )}
-     
-      {showMovieDetailPage &&<MovieDetails /> }
+
+      {showMovieDetailPage && <MovieDetails />}
     </div>
   );
 };

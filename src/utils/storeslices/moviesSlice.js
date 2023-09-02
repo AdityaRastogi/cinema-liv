@@ -5,7 +5,7 @@ const moviesSlice = createSlice({
   initialState: {
     featuredMovies: null,
     showMovieDetailPage: false,
-    movieDetails: null
+    movieDetails: null,
   },
   reducers: {
     addFeaturedMovies: (state, action) => {

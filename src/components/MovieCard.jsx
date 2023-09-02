@@ -1,24 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
-import { SEARCH_API_WITH_ID, SEARCH_PLOT_API_PARAM } from "../utils/appConstants";
+import {
+  SEARCH_API_WITH_ID,
+  SEARCH_PLOT_API_PARAM,
+} from "../utils/appConstants";
 import { capitaliseFirstChar } from "../utils/helperFunctions";
-import { addMovieDetails, addShowMovieDetailPage } from "../utils/storeslices/moviesSlice";
+import {
+  addMovieDetails,
+  addShowMovieDetailPage,
+} from "../utils/storeslices/moviesSlice";
 
 const MovieCard = ({ poster, type, title, year, imdbId }) => {
   const dispatch = useDispatch();
-  const plotValue = useSelector(store=>store.search.searchPlot)
+  const plotValue = useSelector((store) => store.search.searchPlot);
   const handleSelectMovie = () => {
     dispatch(addShowMovieDetailPage(true));
-    fetchMovieDetails()
+    fetchMovieDetails();
   };
 
-  const fetchMovieDetails=async()=>{
+  const fetchMovieDetails = async () => {
     const movieDetails = await fetch(
       `${SEARCH_API_WITH_ID}${imdbId}${SEARCH_PLOT_API_PARAM}${plotValue}`,
     );
     const movieDetailsJson = await movieDetails.json();
-    dispatch(addMovieDetails(movieDetailsJson))
-  }
-  
+    dispatch(addMovieDetails(movieDetailsJson));
+  };
+
   return (
     <div className="relative pr-0 md:pr-4 mb-20 cursor-pointer border mr-4 rounded">
       <img

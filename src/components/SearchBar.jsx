@@ -21,7 +21,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    dispatch(addShowMovieDetailPage(false))
+    dispatch(addShowMovieDetailPage(false));
     const searchTerm = searchText.current.value;
     const plotValue = plot.current.value;
     if (searchTerm.length === 0) {
@@ -30,14 +30,12 @@ const SearchBar = () => {
     } else {
       dispatch(addSearchError(false));
     }
-    dispatch(addSearchPlot(plotValue))
+    dispatch(addSearchPlot(plotValue));
     searchMovies(searchTerm);
   };
 
   const searchMovies = async (searchTerm) => {
-    const movieDetails = await fetch(
-      `${SEARCH_API_WITH_TITLE}${searchTerm}`,
-    );
+    const movieDetails = await fetch(`${SEARCH_API_WITH_TITLE}${searchTerm}`);
     const movieDetailsJson = await movieDetails.json();
     dispatch(addSearchResults(movieDetailsJson));
   };

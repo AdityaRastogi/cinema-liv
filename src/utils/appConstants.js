@@ -19,6 +19,16 @@ export const LANG = {
       readMore: "Read More",
       readLess: "Read Less",
     },
+    movieDetail: {
+      back: "Back",
+      actors: "Actors",
+      writers: "Writers",
+      genres: "Genres",
+      type: "Type: ",
+      releasedIn: "Released In: ",
+      rated: "Rated: ",
+      awards: "Awards: "
+    },
     searchPage: {
       placeholder: "Search for any title.",
       buttonText: "Search",
