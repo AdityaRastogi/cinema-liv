@@ -43,10 +43,19 @@ const MovieDetails = () => {
                 {movieDetail?.Title}
               </h1>
               <p className="w-full mt-8">{movieDetail?.Plot}</p>
-              <InfoButton title={LANG.en.movieDetail.genres} infoAbout={genres} />
+              <InfoButton
+                title={LANG.en.movieDetail.genres}
+                infoAbout={genres}
+              />
 
-              <InfoButton title={LANG.en.movieDetail.writers} infoAbout={writers} />
-              <InfoButton title={LANG.en.movieDetail.actors} infoAbout={actors} />
+              <InfoButton
+                title={LANG.en.movieDetail.writers}
+                infoAbout={writers}
+              />
+              <InfoButton
+                title={LANG.en.movieDetail.actors}
+                infoAbout={actors}
+              />
             </div>
             <div className="col-span-12 lg:col-span-3 mt-8">
               <h2 className="text-lg md:text-xl lg:text-2xl font-bold m-4 mt-4">
@@ -59,19 +68,19 @@ const MovieDetails = () => {
                 </span>
               </h2>
               <h2 className="text-lg md:text-xl lg:text-2xl font-bold m-4 mt-4">
-              {LANG.en.movieDetail.releasedIn}
+                {LANG.en.movieDetail.releasedIn}
                 <span className="font-normal text-pink">
                   {movieDetail?.Year}
                 </span>
               </h2>
               <h2 className="text-lg md:text-xl lg:text-2xl font-bold m-4 mt-4">
-              {LANG.en.movieDetail.rated}
+                {LANG.en.movieDetail.rated}
                 <span className="font-normal text-pink">
                   {movieDetail?.Rated}
                 </span>
               </h2>
               <h2 className="text-lg md:text-xl lg:text-2xl font-bold m-4 mt-4">
-              {LANG.en.movieDetail.awards}
+                {LANG.en.movieDetail.awards}
                 <span className="font-normal text-pink">
                   {movieDetail?.Awards}
                 </span>

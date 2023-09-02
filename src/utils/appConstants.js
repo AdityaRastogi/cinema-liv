@@ -27,7 +27,7 @@ export const LANG = {
       type: "Type: ",
       releasedIn: "Released In: ",
       rated: "Rated: ",
-      awards: "Awards: "
+      awards: "Awards: ",
     },
     searchPage: {
       placeholder: "Search for any title.",
