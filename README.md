@@ -39,3 +39,4 @@ npm run test
   - can go from HOME Page
   - Search Bar
   - Movie search results
+  - MovieDetails Page
