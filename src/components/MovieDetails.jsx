@@ -22,8 +22,12 @@ const MovieDetails = () => {
   };
 
   return (
-    <div className="w-screen  text-white p-10 relative">
+    <div
+      data-testid="movie-details"
+      className="w-screen  text-white p-10 relative"
+    >
       <button
+      data-testid="back-button"
         className="underline-offset-2 px-4 cursor-pointer right-10 top-0 absolute text-white rounded text-xl"
         onClick={handleBack}
       >
@@ -34,6 +38,7 @@ const MovieDetails = () => {
         <div className="col-span-12 lg:col-span-3">
           <div className="  justify-center flex w-full">
             <img
+              data-testid="movie-details-image"
               alt="poster"
               className="w-80 h-1/6"
               src={imageUrlFormatter(movieDetail?.Poster)}
@@ -43,7 +48,10 @@ const MovieDetails = () => {
         <div className="col-span-12 lg:col-span-9">
           <div className="grid grid-cols-12">
             <div className="col-span-12 lg:col-span-9 m-4">
-              <h1 className="text-xl md:text-2xl lg:text-7xl font-bold">
+              <h1
+                data-testid="movie-details-title"
+                className="text-xl md:text-2xl lg:text-7xl font-bold"
+              >
                 {movieDetail?.Title}
               </h1>
               {plotValue === textsGeneral.plotFull ? (
