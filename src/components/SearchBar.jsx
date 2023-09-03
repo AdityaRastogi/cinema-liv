@@ -36,7 +36,10 @@ const SearchBar = () => {
     dispatch(addSearchResults(movieDetailsJson));
   };
   return (
-    <div data-testid="search-bar" className="pt-[20%] lg:pt-[5%] flex justify-center px-2 md:px-8">
+    <div
+      data-testid="search-bar"
+      className="pt-[20%] lg:pt-[5%] flex justify-center px-2 md:px-8"
+    >
       <form
         className="bg-black w-full lg:w-1/2 grid grid-cols-12 bg-opacity-60"
         onSubmit={(e) => e.preventDefault()}
@@ -47,7 +50,6 @@ const SearchBar = () => {
           type="text"
           className="p-2 md:p-4 m-2 md:m-4 col-span-12 z-50"
           placeholder={texts.placeholder}
-         
           onChange={(e) => checkSpecialChar(e)}
         ></input>
         <div className="justify-between flex">
@@ -65,7 +67,7 @@ const SearchBar = () => {
             ))}
           </select>
           <button
-          data-testid="search-bar-button"
+            data-testid="search-bar-button"
             className=" py-2 m-4 px-4 bg-pink rounded-lg text-white font-bold col-span-4 md:col-span-2"
             onClick={handleSearch}
           >

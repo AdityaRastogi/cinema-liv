@@ -26,7 +26,10 @@ const MovieCard = ({ poster, type, title, year, imdbId }) => {
   };
 
   return (
-    <div data-testid="movie-card" className="relative pr-0 md:pr-4 mb-20 cursor-pointer border mr-4 rounded">
+    <div
+      data-testid="movie-card"
+      className="relative pr-0 md:pr-4 mb-20 cursor-pointer border mr-4 rounded"
+    >
       <img
         data-testid="movie-card-image"
         alt="poster"
@@ -40,7 +43,9 @@ const MovieCard = ({ poster, type, title, year, imdbId }) => {
         <span className="text-xs font-normal ">({year})</span>
       </span>
       <div className="text-white absolute w-full text-light">
-        <h3 data-testid="movie-card-title" className="font-bold mt-4">{title}</h3>
+        <h3 data-testid="movie-card-title" className="font-bold mt-4">
+          {title}
+        </h3>
       </div>
     </div>
   );

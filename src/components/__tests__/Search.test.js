@@ -9,92 +9,82 @@ import { fireEvent, render } from "@testing-library/react";
 import appStore from "../../utils/appStore";
 import SearchPage from "../SearchPage";
 
-
 describe("Search Page", () => {
-    test("should have Search Bar", async () => {
-        const search = async () =>
+  test("should have Search Bar", async () => {
+    const search = async () =>
+      await act(async () =>
+        render(
+          <BrowserRouter>
+            <Provider store={appStore}>
+              <SearchPage />
+            </Provider>
+          </BrowserRouter>,
+        ),
+      );
 
-            await act(async () =>
-                render(
-                    <BrowserRouter>
-                        <Provider store={appStore}>
-                            <SearchPage />
-                        </Provider>
-                    </BrowserRouter>,
-                ),
-            );
+    const { getByTestId } = await search();
 
-        const { getByTestId } = await search();
+    const searchBar = getByTestId("search-bar");
+    expect(searchBar).toBeDefined();
+  });
 
-        const searchBar = getByTestId("search-bar");
-        expect(searchBar).toBeDefined();
+  describe("Search Bar", () => {
+    test("should have input field", async () => {
+      const search = async () =>
+        await act(async () =>
+          render(
+            <BrowserRouter>
+              <Provider store={appStore}>
+                <SearchPage />
+              </Provider>
+            </BrowserRouter>,
+          ),
+        );
+
+      const { getByTestId } = await search();
+
+      const searchBarInput = getByTestId("search-bar-input");
+      expect(searchBarInput).toBeDefined();
     });
+    test("should have search button", async () => {
+      const search = async () =>
+        await act(async () =>
+          render(
+            <BrowserRouter>
+              <Provider store={appStore}>
+                <SearchPage />
+              </Provider>
+            </BrowserRouter>,
+          ),
+        );
 
-    describe("Search Bar", () => {
-        test("should have input field", async () => {
-            const search = async () =>
+      const { getByTestId } = await search();
 
-                await act(async () =>
-                    render(
-                        <BrowserRouter>
-                            <Provider store={appStore}>
-                                <SearchPage />
-                            </Provider>
-                        </BrowserRouter>,
-                    ),
-                );
+      const searchBarButton = getByTestId("search-bar-button");
+      expect(searchBarButton).toBeDefined();
+    });
+    test("should show error when searchterm is empty and search button is clicked", async () => {
+      const search = async () =>
+        await act(async () =>
+          render(
+            <BrowserRouter>
+              <Provider store={appStore}>
+                <SearchPage />
+              </Provider>
+            </BrowserRouter>,
+          ),
+        );
 
-            const { getByTestId } = await search();
+      const { getByTestId } = await search();
 
-            const searchBarInput = getByTestId("search-bar-input");
-            expect(searchBarInput).toBeDefined();
-        });
-        test("should have search button", async () => {
-            const search = async () =>
+      const searchBarButton = getByTestId("search-bar-button");
 
-                await act(async () =>
-                    render(
-                        <BrowserRouter>
-                            <Provider store={appStore}>
-                                <SearchPage />
-                            </Provider>
-                        </BrowserRouter>,
-                    ),
-                );
+      fireEvent.click(searchBarButton);
 
-            const { getByTestId } = await search();
-
-            const searchBarButton = getByTestId("search-bar-button");
-            expect(searchBarButton).toBeDefined();
-        });
-        test("should show error when searchterm is empty and search button is clicked", async () => {
-            const search = async () =>
-
-                await act(async () =>
-                    render(
-                        <BrowserRouter>
-                            <Provider store={appStore}>
-                                <SearchPage />
-                            </Provider>
-                        </BrowserRouter>,
-                    ),
-                );
-
-            const { getByTestId } = await search();
-
-            const searchBarButton = getByTestId("search-bar-button");
-
-
-            fireEvent.click(searchBarButton)
-
-
-
-            const searchError = getByTestId("search-error");
-            expect(searchError).toBeDefined();
-            const searchErrorHeading = getByTestId("search-error-heading");
-            expect(searchErrorHeading).toBeDefined();
-        });
-
-    })
-
+      const searchError = getByTestId("search-error");
+      expect(searchError).toBeDefined();
+      const searchErrorHeading = getByTestId("search-error-heading");
+      expect(searchErrorHeading).toBeDefined();
+    });
+  });
 });

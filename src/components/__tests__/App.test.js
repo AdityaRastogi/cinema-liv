@@ -9,23 +9,19 @@ import appStore from "../../utils/appStore";
 import App from "../../App";
 
 describe("App", () => {
-    test("should load", async () => {
-        const app = async () =>
+  test("should load", async () => {
+    const app = async () =>
+      await act(async () =>
+        render(
+          <Provider store={appStore}>
+            <App />
+          </Provider>,
+        ),
+      );
 
-            await act(async () =>
-                render(
+    const { getByTestId } = await app();
 
-                    <Provider store={appStore}>
-                        <App />
-                    </Provider>
-
-                ),
-            );
-
-        const { getByTestId } = await app();
-
-        const applayout = getByTestId("app");
-        expect(applayout).toBeDefined();
-    });
-
+    const applayout = getByTestId("app");
+    expect(applayout).toBeDefined();
+  });
 });

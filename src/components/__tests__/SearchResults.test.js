@@ -10,81 +10,75 @@ import appStore from "../../utils/appStore";
 import { FEATURED_DATA } from "../../utils/testsMocks/featuredData";
 import SearchResults from "../SearchResults";
 
-
 describe("Search Results", () => {
-    test("should Load", async () => {
-        const searchResults = async () =>
+  test("should Load", async () => {
+    const searchResults = async () =>
+      await act(async () =>
+        render(
+          <BrowserRouter>
+            <Provider store={appStore}>
+              <SearchResults searchResults={FEATURED_DATA} />
+            </Provider>
+          </BrowserRouter>,
+        ),
+      );
 
-            await act(async () =>
-                render(
-                    <BrowserRouter>
-                        <Provider store={appStore}>
-                            <SearchResults searchResults={FEATURED_DATA} />
-                        </Provider>
-                    </BrowserRouter>,
-                ),
-            );
+    const { getByTestId } = await searchResults();
 
-        const { getByTestId } = await searchResults();
+    const searchResultsPage = getByTestId("search-results");
+    expect(searchResultsPage).toBeDefined();
+  });
+  test("should have 2 movie Cards", async () => {
+    const searchResults = async () =>
+      await act(async () =>
+        render(
+          <BrowserRouter>
+            <Provider store={appStore}>
+              <SearchResults searchResults={FEATURED_DATA} />
+            </Provider>
+          </BrowserRouter>,
+        ),
+      );
 
-        const searchResultsPage = getByTestId("search-results");
-        expect(searchResultsPage).toBeDefined();
+    const { getAllByTestId } = await searchResults();
+
+    const movieCards = getAllByTestId("movie-card");
+    expect(movieCards.length).toBeDefined();
+  });
+  describe("Movie Card", () => {
+    test("should have image", async () => {
+      const searchResults = async () =>
+        await act(async () =>
+          render(
+            <BrowserRouter>
+              <Provider store={appStore}>
+                <SearchResults searchResults={FEATURED_DATA} />
+              </Provider>
+            </BrowserRouter>,
+          ),
+        );
+
+      const { getAllByTestId } = await searchResults();
+
+      const movieCardImage = getAllByTestId("movie-card-image");
+      expect(movieCardImage[0]).toBeDefined();
     });
-    test("should have 2 movie Cards", async () => {
-        const searchResults = async () =>
+    test("1st should have title as (String)Barbie", async () => {
+      const searchResults = async () =>
+        await act(async () =>
+          render(
+            <BrowserRouter>
+              <Provider store={appStore}>
+                <SearchResults searchResults={FEATURED_DATA} />
+              </Provider>
+            </BrowserRouter>,
+          ),
+        );
 
-            await act(async () =>
-                render(
-                    <BrowserRouter>
-                        <Provider store={appStore}>
-                            <SearchResults searchResults={FEATURED_DATA} />
-                        </Provider>
-                    </BrowserRouter>,
-                ),
-            );
+      const { getAllByTestId } = await searchResults();
 
-        const { getAllByTestId } = await searchResults();
-
-        const movieCards = getAllByTestId("movie-card");
-        expect(movieCards.length).toBeDefined();
+      const movieCardsTitle = getAllByTestId("movie-card-title");
+      expect(movieCardsTitle[0].innerHTML).toBe("Barbie");
     });
-    describe("Movie Card", () => {
-        test("should have image", async () => {
-            const searchResults = async () =>
-
-                await act(async () =>
-                    render(
-                        <BrowserRouter>
-                            <Provider store={appStore}>
-                                <SearchResults searchResults={FEATURED_DATA} />
-                            </Provider>
-                        </BrowserRouter>,
-                    ),
-                );
-
-            const { getAllByTestId } = await searchResults();
-
-            const movieCardImage = getAllByTestId("movie-card-image");
-            expect(movieCardImage[0]).toBeDefined();
-        });
-        test("1st should have title as (String)Barbie", async () => {
-            const searchResults = async () =>
-
-                await act(async () =>
-                    render(
-                        <BrowserRouter>
-                            <Provider store={appStore}>
-                                <SearchResults searchResults={FEATURED_DATA} />
-                            </Provider>
-                        </BrowserRouter>,
-                    ),
-                );
-
-            const { getAllByTestId } = await searchResults();
-
-            const movieCardsTitle = getAllByTestId("movie-card-title");
-            expect(movieCardsTitle[0].innerHTML).toBe("Barbie");
-        });
-    })
-
+  });
 });
