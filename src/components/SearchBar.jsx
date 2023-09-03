@@ -1,11 +1,6 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import {
-  LANG,
-  PLOTS,
-  SEARCH_API_WITH_TITLE,
-  SEARCH_PLOT_API_PARAM,
-} from "../utils/appConstants";
+import { LANG, PLOTS, SEARCH_API_WITH_TITLE } from "../utils/appConstants";
 import { checkSpecialChar } from "../utils/helperFunctions";
 import { addShowMovieDetailPage } from "../utils/storeslices/moviesSlice";
 import {
@@ -17,11 +12,12 @@ import {
 const SearchBar = () => {
   const searchText = useRef(null);
   const plot = useRef(null);
-
+  const texts = LANG.en.searchPage;
   const dispatch = useDispatch();
 
   const handleSearch = () => {
     dispatch(addShowMovieDetailPage(false));
+    dispatch(addSearchResults(null));
     const searchTerm = searchText.current.value;
     const plotValue = plot.current.value;
     if (searchTerm.length === 0) {
@@ -49,10 +45,13 @@ const SearchBar = () => {
           ref={searchText}
           type="text"
           className="p-2 md:p-4 m-2 md:m-4 col-span-12 z-50"
-          placeholder={LANG.en.searchPage.placeholder}
+          placeholder={texts.placeholder}
           onChange={(e) => checkSpecialChar(e)}
         ></input>
         <div className="justify-between flex">
+          <label className="text-white p-2 my-4 ml-2 -mr-2 font-bold">
+            {texts.plot}
+          </label>
           <select
             ref={plot}
             className="p-2 m-4 md:m-4 rounded-lg  bg-white-900 text-black col-span-4 md:col-span-4 lg:col-span-2 cursor-pointer"
@@ -67,7 +66,7 @@ const SearchBar = () => {
             className=" py-2 m-4 px-4 bg-pink rounded-lg text-white font-bold col-span-4 md:col-span-2"
             onClick={handleSearch}
           >
-            {LANG.en.searchPage.buttonText}
+            {texts.buttonText}
           </button>
         </div>
       </form>

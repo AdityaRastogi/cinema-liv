@@ -18,6 +18,8 @@ export const LANG = {
     general: {
       readMore: "Read More",
       readLess: "Read Less",
+      plotFull: "full",
+      plotShort: "short",
     },
     movieDetail: {
       back: "Back",
@@ -36,6 +38,7 @@ export const LANG = {
       noResultsSubText:
         "Please search for correct movie title e.g. Dumb and Dumber",
       searchResultsHeading: "Search Results",
+      plot: "Plot",
     },
   },
 };

@@ -1,3 +1,5 @@
+import { SEARCH_API_WITH_ID, SEARCH_PLOT_API_PARAM } from "./appConstants";
+
 export const imageUrlFormatter = (url) => {
   return `${url?.split("._")[0]}.jpg`;
 };

@@ -11,7 +11,7 @@ const MainContainer = () => {
   }, []);
   return (
     <div>
-      <FeaturedList rowTitle={"Featured Movies"} movies={featuredMovies} />
+      <FeaturedList movies={featuredMovies} />
     </div>
   );
 };
