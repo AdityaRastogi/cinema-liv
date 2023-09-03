@@ -2,7 +2,7 @@
 
 CinemaLiv is an responsive app that helps you select content as per your choice.
 
-![APP](/assets/images/app-logo.png)
+![APP](src/assets/images/app-screenshot.png)
 
 ## Libraries Used
 
