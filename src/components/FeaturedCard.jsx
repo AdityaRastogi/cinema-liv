@@ -5,17 +5,14 @@ const FeaturedCard = ({ movie }) => {
   const { Poster, Title, Year, Plot, Awards } = movie;
 
   return (
-    <div
-      data-testid="featured-card"
-      className="relative w-full bg-gradient-to-tr from-black"
-    >
+    <div data-testid="featured-card" className="relative w-full">
       <div className="cursor-pointer w-screen lg:w-full h-screen">
         <img
           alt="poster"
           className="w-screen h-full brightness-50"
           src={imageUrlFormatter(Poster)}
         ></img>
-        <div className="absolute text-white top-[30%] p-8 w-screen lg:w-full">
+        <div className="absolute text-white top-[30%] p-8 w-screen lg:w-full -mx-1 md:mx-4">
           <h1
             data-testid="featured-card-title-year"
             className="font-bold text-xl md:text-3xl lg:text-5xl"
