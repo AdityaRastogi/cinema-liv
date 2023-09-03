@@ -7,7 +7,7 @@ const SearchResults = ({ searchResults }) => {
   const texts = LANG.en.searchPage;
   const topFiveResults = searchResults.slice(0, 5);
   return (
-    <div className="w-full lg:absolute top-[40%]  mx-4 p-4 rounded-lg ">
+    <div data-testid="search-results" className="w-full lg:absolute top-[40%]  mx-4 p-4 rounded-lg ">
       <h1 className="text-white font-bold text-xl md:text-2xl w-full text-center">
         {texts.searchResultsHeading}
       </h1>

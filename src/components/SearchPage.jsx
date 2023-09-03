@@ -11,7 +11,7 @@ const SearchPage = () => {
     (store) => store.movies.showMovieDetailPage,
   );
   return (
-    <div>
+    <div data-testid="search-page">
       <div className="absolute w-full z-50 "></div>
       <SearchBar />
       {!showMovieDetailPage && (

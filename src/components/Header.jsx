@@ -9,9 +9,18 @@ const Header = () => {
     dispatch(toggleShowSearchPage());
   };
   return (
-    <div className="header flex justify-between w-screen absolute z-10 px-2 md:px-8 md:-my-8 -my-6 bg-gradient-to-b from-black">
-      <img className="w-32 md:w-40 lg:w-48" alt="logo" src={logo}></img>
+    <div
+      data-testid="header"
+      className="header flex justify-between w-screen absolute z-10 px-2 md:px-8 md:-my-8 -my-6 bg-gradient-to-b from-black"
+    >
+      <img
+        data-testid="header-logo"
+        className="w-32 md:w-40 lg:w-48"
+        alt="logo"
+        src={logo}
+      ></img>
       <button
+        data-testid="header-search-home-button"
         className="text-2xl md:text-3xl lg:text-4xl pr-6 text-white font-bold"
         onClick={handleToggleSearch}
       >

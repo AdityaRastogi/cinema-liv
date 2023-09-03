@@ -5,8 +5,9 @@ const Splash = () => {
   useFeaturedMovies(); // Get featured Movies
 
   return (
-    <div className="grid h-screen place-items-center">
+    <div data-testid="splash-page" className="grid h-screen place-items-center">
       <img
+        data-testid="logo"
         className="w-full lg:w-1/2 animate-pulse"
         alt="logo"
         src={logo}

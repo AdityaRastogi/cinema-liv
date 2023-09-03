@@ -10,7 +10,7 @@ const MainContainer = () => {
     if (!featuredMovies) navigate("/");
   }, []);
   return (
-    <div>
+    <div data-testid="main-container-page">
       <FeaturedList movies={featuredMovies} />
     </div>
   );

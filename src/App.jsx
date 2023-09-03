@@ -8,7 +8,7 @@ import appStore from "./utils/appStore";
 function App() {
   return (
     <Provider store={appStore}>
-      <div className="h-screen w-screen bg-black">
+      <div data-testid="app" className="h-screen w-screen bg-black">
         <RouterProvider router={appRouter} />
       </div>
     </Provider>

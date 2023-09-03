@@ -12,11 +12,11 @@ const ReadMoreReadLess = ({ plot }) => {
   };
 
   return (
-    <div className=" flex flex-wrap w-full">
+    <div data-testid="read-more-read-less" className=" flex flex-wrap w-full">
       <p className="my-4 mx-1 w-[200%] text-xs md:text-sm lg:text-xl">
         {plotValue}
       </p>
-      <button
+      <button data-testid="read-button"
         className="underline bg-pink bg-opacity-30 text-white px-4 py-2 mb-4"
         onClick={toggleReadMoreLess}
       >
