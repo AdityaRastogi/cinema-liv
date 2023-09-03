@@ -7,13 +7,8 @@ import "@testing-library/jest-dom";
 import { act } from "react-dom/test-utils";
 import { fireEvent, render } from "@testing-library/react";
 import appStore from "../../utils/appStore";
-import { FEATURED_DATA } from "../../utils/testsMocks/featuredData";
 import SearchPage from "../SearchPage";
-beforeEach(() => {
-    jest.spyOn(global, 'fetch').mockResolvedValue({
-        json: jest.fn().mockResolvedValue(FEATURED_DATA[1])
-    })
-});
+
 
 describe("Search Page", () => {
     test("should have Search Bar", async () => {
@@ -88,18 +83,18 @@ describe("Search Page", () => {
             const { getByTestId } = await search();
 
             const searchBarButton = getByTestId("search-bar-button");
-            const searchInput = getByTestId("search-bar-input")
-            searchInput.nodeValue = "Wolf"
+
 
             fireEvent.click(searchBarButton)
 
 
+
             const searchError = getByTestId("search-error");
             expect(searchError).toBeDefined();
-
             const searchErrorHeading = getByTestId("search-error-heading");
             expect(searchErrorHeading).toBeDefined();
         });
+
     })
 
 });
