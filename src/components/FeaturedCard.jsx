@@ -21,7 +21,7 @@ const FeaturedCard = ({ movie }) => {
           </h1>
           <ReadMoreReadLess plot={Plot} />
           <h1 className="text-sm md:text-2xl lg:text-3xl">
-            🏆:{" "}
+            🏆: {" "}
             <span
               data-testid="featured-card-awards"
               className="text-xs md:text-lg lg:text-xl"
